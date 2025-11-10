@@ -1,32 +1,52 @@
+// Desafio Batalha Naval (Novato)
 #include <stdio.h>
 
-// Desafio de Xadrez - MateCheck
-// Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
-// O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
-
 int main() {
-    // Nível Novato - Movimentação das Peças
-    // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
 
-    // Implementação de Movimentação do Bispo
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação do Bispo em diagonal.
+    char linha[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'}; // Vetor de letras
 
-    // Implementação de Movimentação da Torre
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Torre para a direita.
+    int tabuleiro [10][10]; // Declaração da Matriz
 
-    // Implementação de Movimentação da Rainha
-    // Sugestão: Utilize uma estrutura de repetição para simular a movimentação da Rainha para a esquerda.
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            tabuleiro[i][j] = 0;
+        }
+    }
 
-    // Nível Aventureiro - Movimentação do Cavalo
-    // Sugestão: Utilize loops aninhados para simular a movimentação do Cavalo em L.
-    // Um loop pode representar a movimentação horizontal e outro vertical.
+    // Variáveias com tamanhos do Tabuleiro e Navio
+    int tamanho = 10;
+    int navio = 3;
 
-    // Nível Mestre - Funções Recursivas e Loops Aninhados
-    // Sugestão: Substitua as movimentações das peças por funções recursivas.
-    // Exemplo: Crie uma função recursiva para o movimento do Bispo.
+    // Posicionamento do Navio na Horizontal (2, 4)
+    for (int j = 0; j < 3; j++) {
+        tabuleiro[2][4 + j] = navio;
+    }
 
-    // Sugestão: Implemente a movimentação do Cavalo utilizando loops com variáveis múltiplas e condições avançadas.
-    // Inclua o uso de continue e break dentro dos loops.
+    // Posicionamento do Navio na Vertical (5, 7)
+    for (int i = 0; i < 3; i++) {
+        tabuleiro[5 + i][7] = navio;
+    }
+
+    // Exibindo o Tabuleiro
+    printf("TABULEIRO BATALHA NAVAL \n");
+
+    printf("   ");
+
+    for (int j = 0; j < 10; j++) {
+    printf("%c ", linha[j]); // imprime os números das colunas
+    }
+
+    printf("\n");
+
+    // Imprime linhas numeradas
+    for (int i = 0; i < tamanho; i++) {
+        printf("%2d ", i + 1); // linhas de 1 a 10
+        for (int j = 0; j < tamanho; j++) {
+            printf("%d ", tabuleiro[i][j]);
+        }
+
+        printf("\n");
+    }
 
     return 0;
 }
